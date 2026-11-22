@@ -6,7 +6,7 @@ body:
     id: ran
     attributes:
       label: What did you run?
-      description: Name the voiceclone subcommand and relevant options, or describe the studio action.
+      description: Name the voiceclone subcommand and relevant options, or describe the studio action. Do not include personal names, local paths, recordings, or real-speaker transcripts.
       placeholder: "voiceclone prepare ... / In the studio, I ..."
     validations:
       required: true
