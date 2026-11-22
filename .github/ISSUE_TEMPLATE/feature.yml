@@ -1,0 +1,25 @@
+name: Feature idea
+description: Suggest a feature and explain who it helps
+title: "[Feature]: "
+body:
+  - type: textarea
+    id: audience
+    attributes:
+      label: Who is this for?
+      description: For example, an archive, family, school, or someone banking a voice.
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What would they like to do?
+      description: Describe the need or problem this feature addresses.
+    validations:
+      required: true
+  - type: textarea
+    id: success
+    attributes:
+      label: How would you know it works?
+      description: Describe an observable outcome or success criteria.
+    validations:
+      required: true
