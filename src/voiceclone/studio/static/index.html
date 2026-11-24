@@ -123,31 +123,36 @@
         <div class="in">
           <p class="muted small">The voice is copied from this short clip of the sample. Play the clip. The words below must be the words you hear. Correct them if they are wrong.</p>
           <audio id="a-reference" controls preload="none"></audio>
-          <textarea id="v-ref-text" rows="2" maxlength="1000" lang="kn" aria-label="Words of the clip"></textarea>
+          <textarea id="v-ref-text" rows="2" maxlength="1000" aria-label="Words of the clip"></textarea>
           <p id="v-ref-error" class="error" role="alert" hidden></p>
           <div class="actions"><span id="ref-saved" class="muted small" role="status" hidden>Saved</span><button id="v-ref-save" class="btn btn-line">Save words</button></div>
         </div>
       </details>
 
-      <div class="card" id="v-ref-card" hidden>
-        <h3>Reference clip</h3>
-        <p class="muted small">The clone is modelled on this short part of the sample, not on the whole sample. The words below are the words of this clip only. They must match the clip exactly. Correct them if the transcription got anything wrong.</p>
-        <audio id="a-reference" controls preload="none"></audio>
-        <textarea id="v-ref-text" rows="2" maxlength="1000"></textarea>
-        <div class="actions"><span id="ref-saved" class="muted small" hidden>Saved</span><button id="v-ref-save" class="btn btn-line">Save words</button></div>
-      </div>
-
-      <div class="card" id="v-try-card" hidden>
-        <h3>Try the voice</h3>
-        <textarea id="v-say" rows="3" maxlength="400" placeholder="Type what the voice should say"></textarea>
-        <p class="muted small" id="v-say-count"></p>
-        <details class="opts">
-          <summary>Generation options</summary>
-          <div class="opt-group" id="o-generate"></div>
-        </details>
-        <div class="actions">
-          <span id="v-model-badge" class="badge"></span>
-          <button id="v-generate" class="btn btn-accent">Generate</button>
+      <details class="card fold" id="v-try-card" hidden>
+        <summary><span class="num" hidden></span><b></b><span class="why"></span><span class="pill" hidden></span></summary>
+        <div class="in">
+          <textarea id="v-say" class="say" rows="3" maxlength="400" placeholder="Type what the voice should say" aria-label="What the voice should say"></textarea>
+          <div class="say-foot muted small"><span id="v-say-count"></span><span id="v-say-len">0 / 400</span></div>
+          <p id="v-try-error" class="error" role="alert" hidden></p>
+          <div class="actions">
+            <span class="muted small" id="v-keys"></span>
+            <button id="v-generate" class="btn btn-accent">Generate</button>
+          </div>
+          <div id="v-now" class="gen" role="status" hidden>
+            <div class="gen-head"><b id="now-title"></b><span id="now-time" class="muted"></span></div>
+            <p id="now-text" class="pt"></p>
+            <progress id="now-bar"></progress>
+            <ol id="now-steps" class="steps"></ol>
+            <p id="now-note" class="muted small"></p>
+          </div>
+          <details class="opts">
+            <summary>Advanced options</summary>
+            <div class="opt-group" id="o-generate"></div>
+          </details>
+          <h3 class="takes-h">Results</h3>
+          <p class="muted small" id="v-no-takes">The results show here, the newest text first. Type a sentence and press Generate.</p>
+          <ul id="v-previews" class="previews"></ul>
         </div>
       </details>
 

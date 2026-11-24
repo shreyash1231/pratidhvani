@@ -115,6 +115,11 @@ def test_textarea_languages_follow_the_selected_voice_and_create_language(env):
     script = client.get("/static/app.js").text
     assert 'id="v-ref-text"' in page and 'id="v-say"' in page
     assert 'lang="kn"' not in page
+    for node in ("v-ref-card", "v-ref-text", "a-reference", "v-ref-save", "v-try-card"):
+        assert page.count(f'id="{node}"') == 1
+    assert '<details class="card fold" id="v-try-card" hidden>' in page
+    for node in ("v-now", "v-try-error", "v-keys", "v-say-len", "v-previews"):
+        assert f'id="{node}"' in page
     assert '$("create-form").lang = $("f-lang").value;' in script
     assert '["v-ref-text", "v-say"].forEach((i) => $(i).lang = v.lang);' in script
 
