@@ -14,8 +14,21 @@ from voiceclone.studio.options import OptionError, parse, schema
 STATIC = Path(__file__).parent / "static"
 SAMPLE_MAX_MB = 30
 RECORDING_MAX_MB = 500
-LANGUAGES = {"kn": "Kannada", "mr": "Marathi", "hi": "Hindi", "te": "Telugu",
-             "ta": "Tamil", "ml": "Malayalam", "gu": "Gujarati", "bn": "Bengali"}
+LANGUAGES = {
+    "kn": "Kannada",
+    "mr": "Marathi",
+    "hi": "Hindi",
+    "te": "Telugu",
+    "ta": "Tamil",
+    "ml": "Malayalam",
+    "gu": "Gujarati",
+    "bn": "Bengali",
+    "or": "Odia",
+    "pa": "Punjabi",
+    "as": "Assamese",
+    "sa": "Sanskrit",
+    "ne": "Nepali",
+}
 AUDIO_EXT = {".wav", ".mp3", ".m4a", ".aac", ".flac", ".ogg", ".opus", ".webm", ".mp4"}
 
 

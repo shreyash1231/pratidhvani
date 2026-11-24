@@ -179,7 +179,7 @@ async function submitCreate(e) {
   btn.disabled = true; btn.textContent = "Uploading…";
   try {
     const v = await api("/api/voices", { method: "POST", body: fd });
-    $("create-form").reset(); setChosen(null); showError("create-error", "");
+    $("create-form").reset(); syncCreateLanguage(); setChosen(null); showError("create-error", "");
     renderCreateOptions();
     go(`#/voice/${v.id}`);
   } catch (err) { showError("create-error", err.message); }
@@ -334,10 +334,16 @@ function renderCreateOptions() {
   renderOptions("o-create-reference", "reference");
 }
 
+function syncCreateLanguage() {
+  $("create-form").lang = $("f-lang").value;
+}
+
 // ---------- start ----------
 (async function init() {
   config = await api("/api/config");
   $("f-lang").replaceChildren(...Object.entries(config.languages).map(([k, n]) => el("option", { value: k, textContent: n })));
+  syncCreateLanguage();
+  $("f-lang").addEventListener("change", syncCreateLanguage);
   $("max-mb").textContent = config.sample_max_mb;
   renderCreateOptions();
   if (config.min_train_minutes) $("min-min").textContent = config.min_train_minutes;
