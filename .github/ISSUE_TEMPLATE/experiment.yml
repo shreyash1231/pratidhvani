@@ -1,0 +1,32 @@
+name: Experiment proposal
+description: Propose a one-change voice-quality experiment
+title: "[Experiment]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Keep this to one hypothesis and one change, as required by
+        [CONTRIBUTING rule 1](https://github.com/svayatta/pratidhvani/blob/main/CONTRIBUTING.md#ground-rules).
+        See the [experiment plan](https://github.com/svayatta/pratidhvani/blob/main/docs/experiment-plan.md)
+        for the backlog and how experiments are evaluated.
+  - type: textarea
+    id: hypothesis
+    attributes:
+      label: Hypothesis
+      description: What do you expect to improve, and why?
+    validations:
+      required: true
+  - type: textarea
+    id: one-change
+    attributes:
+      label: The one change
+      description: Specify one change only (data, a filter, a training setting, or the denoiser). Keep everything else as on main.
+    validations:
+      required: true
+  - type: textarea
+    id: gate-metric
+    attributes:
+      label: Expected effect on the gate metric
+      description: Name the metric expected to move (similarity, CER, length error, or stopping behavior) and the expected direction.
+    validations:
+      required: true

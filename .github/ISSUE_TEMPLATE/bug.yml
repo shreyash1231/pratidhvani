@@ -1,0 +1,42 @@
+name: Bug report
+description: Report a problem with voiceclone or the studio
+title: "[Bug]: "
+body:
+  - type: textarea
+    id: ran
+    attributes:
+      label: What did you run?
+      description: Name the voiceclone subcommand and relevant options, or describe the studio action. Do not include personal names, local paths, recordings, or real-speaker transcripts.
+      placeholder: "voiceclone prepare ... / In the studio, I ..."
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened instead?
+      description: Share relevant error text, but do not include personal names, local paths, recordings, or real-speaker transcripts.
+    validations:
+      required: true
+  - type: input
+    id: language
+    attributes:
+      label: Language
+      description: Which language were you using?
+    validations:
+      required: true
+  - type: dropdown
+    id: model-loaded
+    attributes:
+      label: Was a model loaded?
+      options:
+        - "Yes"
+        - "No"
+        - "Not sure"
+    validations:
+      required: true
