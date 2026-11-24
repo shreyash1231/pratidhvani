@@ -118,6 +118,8 @@ def test_textarea_languages_follow_the_selected_voice_and_create_language(env):
     for node in ("v-ref-card", "v-ref-text", "a-reference", "v-ref-save", "v-try-card"):
         assert page.count(f'id="{node}"') == 1
     assert '<details class="card fold" id="v-try-card" hidden>' in page
+    before_try_card = page.split('<details class="card fold" id="v-try-card"', 1)[0].rstrip()
+    assert before_try_card.endswith("</div>")
     for node in ("v-now", "v-try-error", "v-keys", "v-say-len", "v-previews"):
         assert f'id="{node}"' in page
     assert '$("create-form").lang = $("f-lang").value;' in script
